@@ -2,9 +2,9 @@
     <div class="wrapper">
         <db-header></db-header>
         <el-row class="container">
-            <el-col :span="4" class="menu">
-                <db-sidebar></db-sidebar>
-            </el-col>
+<!--            <el-col :span="3" class="menu">-->
+<!--                <db-sidebar></db-sidebar>-->
+<!--            </el-col>-->
             <el-col :span="20" class="content">
                 <db-filterinput></db-filterinput>
                 <db-table></db-table>
@@ -14,14 +14,14 @@
 
         </el-row>
 
-        <el-row>
-            <el-col :span="24">
-                <footer class="footer">
-                    <db-footer></db-footer>
-                </footer>
+<!--        <el-row>-->
+<!--            <el-col :span="24">-->
+<!--                <footer class="footer">-->
+<!--                    <db-footer></db-footer>-->
+<!--                </footer>-->
 
-            </el-col>
-        </el-row>
+<!--            </el-col>-->
+<!--        </el-row>-->
     </div>
 </template>
 
@@ -96,7 +96,7 @@
     }
 
     .footer {
-        height: 120px;
+        height: 80px;
         background-color: #324057;
         color: #a4aebd;
         width: 100%;
