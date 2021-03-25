@@ -7,9 +7,25 @@
               <el-input v-model="inputRevId" placeholder="请输入检查单 如： 100001"></el-input>
             </div></el-col>
             <el-col :span="6"><div>
-              <el-input v-model="inputRevId" placeholder="请输入限定日期 如： 2021-4-1 ~ 2021-4-1"></el-input>
+              <el-input v-model="inputRevDataLimit" placeholder="请输入限定日期 如： 2021-4-1 ~ 2021-4-1"></el-input>
             </div></el-col>
-            <el-col :span="12"><div>
+            <el-col :span="6"><div>
+            <el-select v-model="selectValues">
+              <el-option v-model="selectRole">
+                role 1
+              </el-option>
+              <el-option v-model="selectRole">
+                role 2
+              </el-option>
+              <el-option>
+                role 3
+              </el-option>
+            </el-select>
+            </div></el-col>
+            <el-col :span="6"><div>
+              <el-button  @click="beginOpt">写数据</el-button>
+            </div></el-col>
+            <el-col :span="6"><div>
               <el-button>开始预约</el-button>
             </div></el-col>
           </el-row>
@@ -19,7 +35,9 @@
           <h2>获得检查项目：</h2>
           <el-row class="grid-content">
 <!--          暂定不写-->
-            <h2 style="color: red">暂时不写</h2>
+            <h2 style="color: red">CT1</h2>
+            <h2 style="color: red">CT2</h2>
+            <h2 style="color: red">UB1</h2>
           </el-row>
         </div>
 
@@ -115,8 +133,13 @@
         data(){
             return {
                 inputRevId:'',
+                inputRevDataLimit:'',
+
                 tableData: [],
                 apiUrl: 'http://127.0.0.1:8000/api/persons',
+                optApiUrl:'http://127.0.0.1:80/medicalExam/hello',
+                selectValues:'',
+                selectRole:'',
                 total: 0,
                 pageSize: 10,
                 currentPage: 1,
@@ -166,6 +189,20 @@
         },
 
         methods: {
+
+          // function by simzhang
+            beginOpt: function () {
+              console.log("simzhang bestin opt")
+              this.$axios.get(this.optApiUrl)
+                .then((response) => {
+                  // print log
+                  console.log(response.data)
+                  console.log(this.inputRevId)
+                  console.log(this.inputRevDataLimit)
+                  console.log(this.selectValues)
+                  console.log(this.selectRole)
+                })
+            },
 
             dialogVisible: function () {
                 this.dialogFormVisible = false;
